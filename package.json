@@ -1,0 +1,20 @@
+{
+  "name": "apextracker",
+  "version": "1.0.0",
+  "description": "Apex Legends stat lookup",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "author": "Scott Richards",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}

@@ -1,0 +1,51 @@
+:root {
+  --primary-color: #953036;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--primary-color) url('./assets/octane.png') no-repeat top center;
+  background-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-size: auto;
+  }
+}
+
+main {
+  padding-bottom: 1rem;
+}
+
+
+/* container class from Bootstrap */
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
