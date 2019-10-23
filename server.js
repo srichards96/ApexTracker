@@ -33,5 +33,5 @@ if (process.env.MODE === 'production') {
 
 
 app.listen(process.env.PORT, () => {
-  console.log(`Server listening on port ${process.env.PORT}!`);
+  console.log(`${process.env.MODE} mode - Server listening on port ${process.env.PORT}!`);
 });
