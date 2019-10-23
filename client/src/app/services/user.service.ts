@@ -1,28 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { UserData } from '../models/UserData/UserData';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private user: any;
-  private userSubject: Subject<any> = new Subject();
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getUserObservable(): Observable<any> {
-    return this.userSubject.asObservable();
-  }
-
-  getUser(platform: string, id: string) {
-    this.http.get<{ data: object }>(environment.apiUrl + `/api/v1/profile/${platform}/${id}`)
-      .subscribe(data => {
-        this.user = data.data;
-        console.log('User data:', this.user);
-      });
+  getUser(platform: string, id: string): Observable<{ data: UserData}> {
+    return this.http.get<{ data: UserData}>(environment.apiUrl + `/api/v1/profile/${platform}/${id}`);
   }
 }

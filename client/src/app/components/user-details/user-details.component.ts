@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { UserData } from 'src/app/models/UserData/UserData';
 
 @Component({
   selector: 'app-user-details',
@@ -7,13 +10,25 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
+  user: UserData;
+  loaded = false;
+  error = false;
 
   constructor(
+    private route: ActivatedRoute,
     private userService: UserService
   ) { }
 
   ngOnInit() {
-    this.userService.getUser('psn', 'shamr0cks978');
+    const platform = this.route.snapshot.paramMap.get('platform');
+    const name = this.route.snapshot.paramMap.get('name');
+    this.userService.getUser(platform, name)
+      .subscribe(
+        user => this.user = user.data,
+        err => this.error = true
+      ).add(
+        () => this.loaded = true
+      );
   }
 
 }

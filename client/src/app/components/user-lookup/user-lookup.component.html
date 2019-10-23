@@ -1,39 +1,41 @@
-<form (ngSubmit)="onSubmit(lookupForm)"
-      #lookupForm="ngForm">
+<div class="card">
+  <form (ngSubmit)="onSubmit(lookupForm)"
+        #lookupForm="ngForm">
 
-  <h1>Look-up Player Stats</h1>
+    <h1>Look-up Player Stats</h1>
 
-  <div class="form-group">
-    <h2>Platform</h2>
-    <select class="max-width"
-            name="platform"
-            id="platform"
-            required
-            [(ngModel)]="model.platform">
-      <option value=""
-              disabled
-              selected
-              hidden>Please Select...</option>
-      <option *ngFor="let platform of platforms"
-              [value]="platform.value">{{ platform.text }}</option>
-    </select>
-  </div>
+    <div class="form-group">
+      <h2>Platform</h2>
+      <select class="max-width"
+              name="platform"
+              id="platform"
+              required
+              [(ngModel)]="model.platform">
+        <option value=""
+                disabled
+                selected
+                hidden>Please Select...</option>
+        <option *ngFor="let platform of platforms"
+                [value]="platform.value">{{ platform.text }}</option>
+      </select>
+    </div>
 
-  <div class="form-group">
-    <h2>Name</h2>
-    <input class="max-width"
-           type="text"
-           name="name"
-           id="name"
-           required
-           placeholder="Player Name..."
-           [(ngModel)]="model.name">
-  </div>
+    <div class="form-group">
+      <h2>Name</h2>
+      <input class="max-width"
+             type="text"
+             name="name"
+             id="name"
+             required
+             placeholder="Player Name..."
+             [(ngModel)]="model.name">
+    </div>
 
-  <div class="form-group">
-    <input type="submit"
-           value="Submit"
-           [disabled]="!lookupForm.valid">
-  </div>
+    <div class="form-group">
+      <input type="submit"
+             value="Submit"
+             [disabled]="!lookupForm.valid">
+    </div>
 
-</form>
+  </form>
+</div>

@@ -10,7 +10,7 @@ const routes: Routes = [
     component: UserLookupComponent
   },
   {
-    path: ':platform/:id',
+    path: ':platform/:name',
     component: UserDetailsComponent
   },
   {

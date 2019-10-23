@@ -1,1 +1,59 @@
-<p>user-details works!</p>
+<div *ngIf="!loaded">
+  Loading...
+</div>
+
+<div class="card"
+     *ngIf="loaded">
+
+  <div *ngIf="!error">
+    <div class="tile">
+      <img [src]="user.platformInfo.avatarUrl"
+           class="avatar">
+      <span>{{ user.platformInfo.platformUserHandle }}</span>
+    </div>
+    <div class="grid">
+
+      <div class="legend-container">
+        <img class="legend"
+             [src]="user.segments[1].metadata.imageUrl">
+      </div>
+
+
+      <div class="tile">
+        <div class="title">Selected Legend</div>
+        <div class="body">{{ user.metadata.activeLegendName }}</div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Season 3 Wins</div>
+        <div class="body">
+          {{ user.segments[0].stats.season3Wins.displayValue }}
+          <span>({{ user.segments[0].stats.season3Wins.percentile }}%)</span>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Apex Level</div>
+        <div class="body">
+          {{ user.segments[0].stats.level.value }}
+          <span>({{ user.segments[0].stats.level.percentile }}%)</span>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="title">Damage Dealt (Lifetime)</div>
+        <div class="body">{{ user.segments[0].stats.damage.value | number }}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="error">
+    <div class="tile">
+      User could not be found.
+    </div>
+  </div>
+
+  <button class="back-button"
+          routerLink="/">Go Back</button>
+</div>
