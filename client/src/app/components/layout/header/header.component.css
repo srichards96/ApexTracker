@@ -1,6 +1,13 @@
 header {
   height: 100px;
   text-align: left;
+
+  display: flex;
+  flex-direction: row;
+}
+
+div {
+  width: 50%;
 }
 
 @media(min-width: 768px) {
@@ -9,6 +16,17 @@ header {
   }
 }
 
-img {
+img.logo {
   height: 100%;
+}
+
+div.github-container {
+  position: relative;
+  text-align: right;
+}
+
+img.github {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
 }
