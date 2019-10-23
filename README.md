@@ -31,15 +31,16 @@ In development mode the backend sets CORS headers so that ```http://localhost:42
     * This should output the built code in the ```public``` folder (in the root folder of the project)
 5. Frontend should now be accessible at ```http://localhost:{{port}}``` (where ```{{port}}``` is the ```PORT``` value in ```config.env```) while ```server.js``` is running
 
-## Deployment instructions
-1. To deploy, move the following files and folders to deployment location
+## Deployment instructions (Heroku)
+1. Create a new Heroku app.
+2. Go to the deploy tab and choose to deploy using Heroku Git.
+3. Follow the instructions for logging in, cloning the Heroku Git repository, and entering the repository's folder.
+4. Move the following files and folders into the repository folder
     * ```public``` (folder)
     * ```routes``` (folder)
     * ```config.env```
+    * ```Procfile```
     * ```package.json```
     * ```package-lock.json```
     * ```server.js```
-2. Run ```npm install``` to install backend dependencies at deployment location.
-    * Frontend dependencies are already bundled with the built output in the ```public``` folder
-3. Run ```node server``` to start application
-4. Application should now be accessible from deployment location / domain
+5. Commit and push the changes to the Heroku Git repository
