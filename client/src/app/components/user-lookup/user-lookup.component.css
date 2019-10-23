@@ -40,9 +40,23 @@ input[type="text"]:focus, select:focus {
   border: 2px solid var(--primary-color);
 }
 
+select:required:invalid {
+  color: gray;
+}
+
+option {
+  color: black;
+}
+
 input[type="submit"] {
   color: white;
   background-color: var(--primary-color);
   width: 10rem;
   max-width: 100%;
+  cursor: pointer;
+}
+
+input:disabled[type="submit"] {
+  background-color: gray;
+  cursor: not-allowed;
 }

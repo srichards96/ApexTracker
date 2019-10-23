@@ -18,7 +18,7 @@ export class UserService {
     return this.userSubject.asObservable();
   }
 
-  getUser(platform: string, id: string): void {
+  getUser(platform: string, id: string) {
     this.http.get<{ data: object }>(environment.apiUrl + `/api/v1/profile/${platform}/${id}`)
       .subscribe(data => {
         this.user = data.data;
